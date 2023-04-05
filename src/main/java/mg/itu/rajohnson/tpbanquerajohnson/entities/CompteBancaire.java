@@ -91,4 +91,20 @@ public class CompteBancaire implements Serializable {
         return "mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire[ id=" + id + " ]";
     }
 
+    public CompteBancaire(String nom, int solde) {
+        this.nom = nom;
+        this.solde = solde;
+    }
+
+    public void deposer(int montant) {
+        solde += montant;
+    }
+
+    public void retirer(int montant) {
+        if (montant < solde) {
+            solde -= montant;
+        } else {
+            solde = 0;
+        }
+    }
 }
