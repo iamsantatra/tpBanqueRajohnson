@@ -22,10 +22,50 @@ public class CompteBancaire implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nom;
+
+    /**
+     * Get the value of nom
+     *
+     * @return the value of nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * Set the value of nom
+     *
+     * @param nom new value of nom
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    private int solde;
+
+    /**
+     * Get the value of solde
+     *
+     * @return the value of solde
+     */
+    public int getSolde() {
+        return solde;
+    }
+
+    /**
+     * Set the value of solde
+     *
+     * @param solde new value of solde
+     */
+    public void setSolde(int solde) {
+        this.solde = solde;
+    }
+
     public Long getId() {
         return id;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -50,5 +90,5 @@ public class CompteBancaire implements Serializable {
     public String toString() {
         return "mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire[ id=" + id + " ]";
     }
-    
+
 }
