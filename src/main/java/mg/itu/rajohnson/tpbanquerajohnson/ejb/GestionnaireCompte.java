@@ -6,6 +6,9 @@ package mg.itu.rajohnson.tpbanquerajohnson.ejb;
 
 import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire;
 import java.util.List;
 
@@ -29,11 +32,15 @@ import java.util.List;
 @Stateless
 public class GestionnaireCompte {
 
+    @PersistenceContext(unitName = "banquePU")
+    private EntityManager em;
+    
     public void creerCompte(CompteBancaire c) {
-        
+        em.persist(c);
     }
 
     public List<CompteBancaire> getAllComptes() {
-        return null;
+       TypedQuery typedQuery = (TypedQuery) em.createNamedQuery("Customer.findAll");
+       return typedQuery.getResultList();
     }
 }
