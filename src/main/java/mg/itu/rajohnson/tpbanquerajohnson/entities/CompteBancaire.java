@@ -18,9 +18,10 @@ import jakarta.persistence.Table;
  * @author LENOVO
  */
 @Entity
-@Table(name = "COMPTEBANCAIRE")
+@Table(name = "comptebancaire")
 @NamedQueries({
-    @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM COMPTEBANCAIRE c"),
+    @NamedQuery(name = "CompteBancaire.findAll", query = "SELECT c FROM CompteBancaire c"),
+    @NamedQuery(name = "CompteBancaire.count", query = "SELECT COUNT(c) FROM CompteBancaire c")
 })
 public class CompteBancaire implements Serializable {
 
