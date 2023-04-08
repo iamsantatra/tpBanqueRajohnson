@@ -8,6 +8,7 @@ import jakarta.ejb.EJB;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.RequestScoped;
 import mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire;
+import mg.itu.rajohnson.tpbanquerajohnson.util.Util;
 
 /**
  *
@@ -55,10 +56,31 @@ public class Transfert {
     }
 
     public String enregistrementTransfert() {
-        CompteBancaire source = gestionnaireCompte.getCompte(idSource); 
+        boolean erreur = false;
+        CompteBancaire source = gestionnaireCompte.getCompte(idSource);
+        if (source == null) {
+            // Message d'erreur associé au composant source ; form:source est l'id client
+            // si l'id du formulaire est "form" et l'id du champ de saisie de l'id de la source est "source"
+            // dans la page JSF qui lance le transfert.
+            Util.messageErreur("Aucun compte avec cet id !", "Aucun compte avec cet id !", "form:source");
+            erreur = true;
+        } else {
+            if (source.getSolde() < montant) {
+                Util.messageErreur("Solde insuffisant !", "Solde insuffisant !", "form:montant");
+                erreur = true;
+            }
+        }
         CompteBancaire destination = gestionnaireCompte.getCompte(idDestination);
+        if (destination == null) {
+            Util.messageErreur("Aucun compte avec cet id !", "Aucun compte avec cet id !", "form:destination");
+            erreur = true;
+        }
+        if (erreur) {
+            return null;
+        }
         gestionnaireCompte.transferer(source, destination, montant);
-        return "listeComptes";
+        Util.addFlashInfoMessage("Transfert correctement effectué ");
+        return "listeComptes?faces-redirect=true";
     }
 
 }
