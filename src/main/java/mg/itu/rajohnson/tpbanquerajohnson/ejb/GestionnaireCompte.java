@@ -40,8 +40,8 @@ public class GestionnaireCompte {
     }
 
     public List<CompteBancaire> getAllComptes() {
-        TypedQuery typedQuery = (TypedQuery) em.createNamedQuery("CompteBancaire.findAll");
-        return typedQuery.getResultList();
+        TypedQuery query = (TypedQuery) em.createNamedQuery("CompteBancaire.findAll");
+        return query.getResultList();
     }
 
     public long nbComptes() {

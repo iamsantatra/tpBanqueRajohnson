@@ -5,7 +5,6 @@
 package mg.itu.rajohnson.tpbanquerajohnson.ejb;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
