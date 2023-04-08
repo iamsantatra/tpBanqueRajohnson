@@ -8,7 +8,6 @@ import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire;
 import java.util.List;
