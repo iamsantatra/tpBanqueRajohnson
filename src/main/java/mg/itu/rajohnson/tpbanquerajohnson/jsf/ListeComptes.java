@@ -20,7 +20,7 @@ import mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire;
 @ViewScoped
 public class ListeComptes implements Serializable {
 
-    private List<CompteBancaire> compteBancaireList;
+    private List<CompteBancaire> allComptes;
 
     @EJB
     private GestionnaireCompte gestionnaireCompte;
@@ -32,9 +32,9 @@ public class ListeComptes implements Serializable {
     }
 
     public List<CompteBancaire> getAllComptes() {
-        if (compteBancaireList == null) {
-            compteBancaireList = gestionnaireCompte.getAllComptes();
+        if (allComptes == null) {
+            allComptes = gestionnaireCompte.getAllComptes();
         }
-        return compteBancaireList;
+        return allComptes;
     }
 }
