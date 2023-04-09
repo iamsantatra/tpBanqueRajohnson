@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import mg.itu.rajohnson.tpbanquerajohnson.ejb.GestionnaireCompte;
 import mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire;
+import mg.itu.rajohnson.tpbanquerajohnson.util.Util;
 
 /**
  *
@@ -36,5 +37,11 @@ public class ListeComptes implements Serializable {
             allComptes = gestionnaireCompte.getAllComptes();
         }
         return allComptes;
+    }
+
+    public String supprimerCompte(CompteBancaire compteBancaire) {
+        gestionnaireCompte.supprimerCompte(compteBancaire);
+        Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
+        return "listeComptes?faces-redirect=true";
     }
 }
