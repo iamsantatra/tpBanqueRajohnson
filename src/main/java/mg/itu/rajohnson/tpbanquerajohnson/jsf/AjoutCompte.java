@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSF/JSFManagedBean.java to edit this template
  */
-package mg.itu.rajohnson.tpbanquerajohnson.ejb;
+package mg.itu.rajohnson.tpbanquerajohnson.jsf;
 
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.validation.constraints.PositiveOrZero;
+import mg.itu.rajohnson.tpbanquerajohnson.ejb.GestionnaireCompte;
 import mg.itu.rajohnson.tpbanquerajohnson.entities.CompteBancaire;
 import mg.itu.rajohnson.tpbanquerajohnson.util.Util;
 
