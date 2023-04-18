@@ -50,6 +50,15 @@
                                 <h:link outcome="modifierNom?id=#{item.id}"
                                         value="Changer nom"/>
                             </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText escape="false" value="Historique&lt;br/>opérations"/>
+                                </f:facet>
+                                <h:link outcome="operations"
+                                               title="Historique des opérations du #{item.nom}" value="Détails" >
+                                    <f:param name="id" value="#{item.id}" />
+                                </h:link>
+                            </p:column>
                         </p:dataTable>
                     </h:form>
                     <h:messages/>
