@@ -4,6 +4,7 @@
  */
 package mg.itu.rajohnson.tpbanquerajohnson.entities;
 
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
@@ -57,7 +58,7 @@ public class OperationBancaire implements Serializable {
     public OperationBancaire(String description, int montant) {
         this.description = description;
         this.montant = montant;
-        dateOperation = LocalDateTime.now();
+        this.dateOperation = LocalDateTime.now();
     }
 
     public Long getId() {
